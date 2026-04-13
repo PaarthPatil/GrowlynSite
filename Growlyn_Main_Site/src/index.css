@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ffffff;
+  /* White text for high contrast on dark */
+  --color-accent: #f97316;
+  /* Orange for main accents */
+  --color-dark: #0a0a0a;
+  /* Deep black/slate mix for richness */
+  --color-border: #262626;
+  /* Slightly lighter border */
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #121212;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+/* Utilities for Swiss Style Grid */
+.border-grid {
+  border: 1px solid var(--color-border);
+}
+
+.border-b-grid {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.border-r-grid {
+  border-right: 1px solid var(--color-border);
+}
+
+/* Global Button Glow Override */
+a.rounded-full,
+button.rounded-full,
+a.rounded-lg,
+button.rounded-lg {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+a.rounded-full:hover,
+button.rounded-full:hover,
+a.rounded-lg:hover,
+button.rounded-lg:hover {
+  box-shadow: 0 0 30px var(--color-accent) !important;
+  transform: translateY(-2px);
+}
+
+/* Global Text Hover Effect (Excluding Buttons) */
+a:not(.rounded-full):not(.rounded-lg):not(.no-hover-color) {
+  transition: color 0.3s ease;
+}
+
+a:not(.rounded-full):not(.rounded-lg):not(.no-hover-color):hover {
+  color: var(--color-accent) !important;
+}
