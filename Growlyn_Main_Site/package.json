@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://PaarthPatil.github.io/GrowlynSite/",
+  "homepage": "https://growlyn.in/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
