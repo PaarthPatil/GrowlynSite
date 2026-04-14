@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Download, Maximize2, ExternalLink } from "lucide-react"
 
