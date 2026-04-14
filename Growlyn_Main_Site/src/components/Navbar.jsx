@@ -37,12 +37,15 @@ export default function Navbar() {
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <a href="#" className="flex items-center gap-2">
+                <a href="#" className="flex items-center gap-3 group">
                     <img 
                         src="/logo.png" 
-                        alt="Growlyn" 
+                        alt="Growlyn Logo" 
                         className="h-8 sm:h-10 w-auto object-contain"
                     />
+                    <span className="text-xl sm:text-2xl font-heading font-bold text-white tracking-tighter group-hover:text-accent transition-colors">
+                        Growlyn<span className="text-accent underline decoration-accent/30 underline-offset-4">.</span>
+                    </span>
                 </a>
 
                 {/* Desktop Nav */}

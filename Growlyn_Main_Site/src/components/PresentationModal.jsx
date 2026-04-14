@@ -23,10 +23,10 @@ export default function PresentationModal({ isOpen, onClose, pdfUrl = "/presenta
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="relative w-full max-w-6xl h-[80vh] sm:h-[90vh] bg-dark border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+                        className="relative w-full max-w-5xl bg-dark border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
                     >
                         {/* Header */}
-                        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-dark/50 backdrop-blur-sm z-10">
+                        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-dark/50 backdrop-blur-sm z-10 shrink-0">
                             <div className="flex items-center gap-3">
                                 <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
                                     <Maximize2 className="w-4 h-4 text-accent" />
@@ -69,16 +69,16 @@ export default function PresentationModal({ isOpen, onClose, pdfUrl = "/presenta
                         </div>
 
                         {/* PDF Viewer Body */}
-                        <div className="flex-1 bg-white/5 relative">
+                        <div className="relative w-full aspect-video bg-white/5 overflow-hidden">
                             <iframe
-                                src={`${pdfUrl}#toolbar=0`}
-                                className="w-full h-full border-none"
+                                src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                                className="absolute inset-0 w-full h-full border-none"
                                 title="Presentation PDF"
                             />
                             
                             {/* Fallback/Loader Hint */}
                             <div className="absolute inset-0 -z-10 flex items-center justify-center">
-                                <div className="text-white/20 animate-pulse">Loading presentation...</div>
+                                <div className="text-white/20 animate-pulse font-medium">Loading presentation...</div>
                             </div>
                         </div>
 
