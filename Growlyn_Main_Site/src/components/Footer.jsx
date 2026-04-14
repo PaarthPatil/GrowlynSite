@@ -36,8 +36,12 @@ export default function Footer() {
 
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
                     <div className="col-span-2 md:col-span-2 lg:col-span-1">
-                        <button onClick={() => scrollTo("#")} className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tighter block mb-4 sm:mb-6 hover:text-accent transition-colors">
-                            Growlyn<span className="text-accent">.</span>
+                        <button onClick={() => scrollTo("#")} className="inline-block mb-4 sm:mb-6">
+                            <img 
+                                src="/logo.png" 
+                                alt="Growlyn" 
+                                className="h-10 sm:h-12 w-auto object-contain hover:opacity-80 transition-opacity"
+                            />
                         </button>
                         <p className="text-white/60 mb-4 sm:mb-6 text-sm sm:text-base">
                             Transforming digital landscapes one brand at a time.

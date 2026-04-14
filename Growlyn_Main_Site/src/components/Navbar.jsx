@@ -37,8 +37,12 @@ export default function Navbar() {
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <a href="#" className="text-2xl font-heading font-bold text-white tracking-tighter">
-                    Growlyn<span className="text-accent">.</span>
+                <a href="#" className="flex items-center gap-2">
+                    <img 
+                        src="/logo.png" 
+                        alt="Growlyn" 
+                        className="h-8 sm:h-10 w-auto object-contain"
+                    />
                 </a>
 
                 {/* Desktop Nav */}
