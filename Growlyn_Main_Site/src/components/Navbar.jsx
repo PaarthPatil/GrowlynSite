@@ -32,8 +32,8 @@ export default function Navbar() {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-                isScrolled ? "bg-dark/95 backdrop-blur-md border-border py-4" : "bg-transparent py-6"
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+                isScrolled ? "bg-dark/80 backdrop-blur-xl py-4 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" : "bg-transparent py-6"
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
@@ -43,8 +43,8 @@ export default function Navbar() {
                         alt="Growlyn Logo" 
                         className="h-8 sm:h-10 w-auto object-contain"
                     />
-                    <span className="text-xl sm:text-2xl font-heading font-bold text-white tracking-tighter group-hover:text-accent transition-colors">
-                        Growlyn<span className="text-accent underline decoration-accent/30 underline-offset-4">.</span>
+                    <span className="text-xl sm:text-2xl font-heading font-bold text-white tracking-tight group-hover:text-accent transition-colors">
+                        Growlyn<span className="text-accent ml-0.5">.</span>
                     </span>
                 </a>
 

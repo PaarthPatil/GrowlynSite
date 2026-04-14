@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X, Download, Maximize2, ExternalLink } from "lucide-react"
 
 export default function PresentationModal({ isOpen, onClose, pdfUrl = "/presentation.pdf" }) {
+    const [isLoaded, setIsLoaded] = useState(false)
+
     if (!isOpen) return null
 
     return (
@@ -70,16 +72,29 @@ export default function PresentationModal({ isOpen, onClose, pdfUrl = "/presenta
 
                         {/* PDF Viewer Body */}
                         <div className="relative w-full aspect-video bg-white/5 overflow-hidden">
-                            <iframe
-                                src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                                className="absolute inset-0 w-full h-full border-none"
+                            {/* Skeleton Loader */}
+                            {!isLoaded && (
+                                <div className="absolute inset-0 z-0 flex flex-col items-center justify-center gap-2">
+                                    <div className="w-full h-full bg-white/5 animate-pulse flex flex-col items-center justify-center px-12">
+                                        <div className="w-1/3 h-2 bg-white/10 rounded-full mb-4" />
+                                        <div className="w-2/3 h-2 bg-white/10 rounded-full mb-2" />
+                                        <div className="w-1/2 h-2 bg-white/10 rounded-full" />
+                                    </div>
+                                    <div className="absolute bottom-6 text-[10px] text-white/20 uppercase tracking-[0.2em] animate-pulse">
+                                        Preparing Presentation...
+                                    </div>
+                                </div>
+                            )}
+
+                            <motion.iframe
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: isLoaded ? 1 : 0 }}
+                                transition={{ duration: 0.8 }}
+                                onLoad={() => setIsLoaded(true)}
+                                src={`${pdfUrl}#toolbar=0`}
+                                className="absolute inset-0 w-full h-full border-none z-10"
                                 title="Presentation PDF"
                             />
-                            
-                            {/* Fallback/Loader Hint */}
-                            <div className="absolute inset-0 -z-10 flex items-center justify-center">
-                                <div className="text-white/20 animate-pulse font-medium">Loading presentation...</div>
-                            </div>
                         </div>
 
                         {/* Footer (Optional) */}
