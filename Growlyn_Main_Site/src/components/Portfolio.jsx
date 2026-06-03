@@ -66,10 +66,10 @@ export default function Portfolio() {
                                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-20" />
 
                                         <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }} className="relative">
-                                            <img src={project.image} alt={project.title} className={`w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 aspect-[16/10] sm:aspect-[16/10] md:${isLarge ? 'aspect-[16/10]' : 'aspect-[4/5]'}`} />
+                                            <img src={project.image} alt={project.title} className={`w-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700 aspect-[16/10] sm:aspect-[16/10] md:${isLarge ? 'aspect-[16/10]' : 'aspect-[4/5]'}`} />
                                         </motion.div>
 
-                                        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                                        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
                                             <div className="bg-white text-dark px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-1.5 sm:gap-2 font-bold text-xs sm:text-sm">
                                                 <span className="hidden sm:inline">View Case Study</span>
                                                 <span className="sm:hidden">View</span>

@@ -28,13 +28,31 @@ export default function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className={`group border-b md:border-b-0 md:border-r border-white/10 last:border-b-0 last:md:border-r-0 p-6 sm:p-8 lg:p-10 min-h-[280px] sm:h-96 flex flex-col justify-between hover:bg-white/5 transition-all duration-300 cursor-pointer relative overflow-hidden`}
+                            className={`group border-b md:border-b-0 md:border-r border-white/10 last:border-b-0 last:md:border-r-0 p-6 sm:p-8 lg:p-10 min-h-[280px] sm:h-96 flex flex-col justify-between hover:bg-white/5 transition-all duration-500 cursor-pointer relative overflow-hidden`}
                         >
-                            <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-500" />
+                            {/* Dynamic Cover Picture */}
+                            {service.coverImage && (
+                                <div className="absolute inset-0 opacity-25 md:opacity-0 md:group-hover:opacity-20 transition-all duration-700 ease-out scale-100 md:scale-105 md:group-hover:scale-100 pointer-events-none z-0">
+                                    <img 
+                                        src={service.coverImage} 
+                                        alt={service.title} 
+                                        className="w-full h-full object-cover filter grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700" 
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent" />
+                                </div>
+                            )}
 
-                            <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-white/10 group-hover:text-accent group-hover:scale-110 transition-all duration-500 origin-top-left">
-                                {service.id}
-                            </span>
+                            <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-500 pointer-events-none" />
+
+                            {/* Top row with Category ID and Category Icon */}
+                            <div className="flex justify-between items-start relative z-10 w-full">
+                                <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-white/10 group-hover:text-accent group-hover:scale-110 transition-all duration-500 origin-top-left select-none">
+                                    {service.id}
+                                </span>
+                                {service.icon && (
+                                    <service.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white/10 group-hover:text-accent group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
+                                )}
+                            </div>
 
                             <div className="relative z-10 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                 <div className="w-10 sm:w-12 h-[2px] bg-accent mb-4 sm:mb-6 scale-0 group-hover:scale-100 transition-transform duration-500 origin-left" />

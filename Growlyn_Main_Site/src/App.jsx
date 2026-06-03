@@ -6,14 +6,21 @@ import Hero from "./components/Hero"
 import Clients from "./components/Clients"
 import Services from "./components/Services"
 import Portfolio from "./components/Portfolio"
-import Team from "./components/Team"
 import Testimonials from "./components/Testimonials"
 import Footer from "./components/Footer"
 import Preloader from "./components/Preloader"
 import ErrorBoundary from "./components/ErrorBoundary"
+import ContactCareersModal from "./components/ContactCareersModal"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  const [contactModalTab, setContactModalTab] = useState("contact")
+
+  const openContactModal = (tab = "contact") => {
+    setContactModalTab(tab)
+    setIsContactModalOpen(true)
+  }
 
   return (
     <ErrorBoundary>
@@ -26,14 +33,23 @@ function App() {
 
           {!isLoading && (
             <>
-              <Navbar />
-              <Hero />
+              <Navbar openModal={openContactModal} />
+              <Hero openModal={openContactModal} />
               <Clients />
               <Services />
               <Portfolio />
-              <Team />
               <Testimonials />
-              <Footer />
+              <Footer openModal={openContactModal} />
+              
+              <AnimatePresence>
+                {isContactModalOpen && (
+                  <ContactCareersModal 
+                    isOpen={isContactModalOpen} 
+                    onClose={() => setIsContactModalOpen(false)} 
+                    defaultTab={contactModalTab} 
+                  />
+                )}
+              </AnimatePresence>
             </>
           )}
         </main>

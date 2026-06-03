@@ -3,7 +3,7 @@ import { footerLinks } from "../constants"
 import { motion } from "framer-motion"
 import { useLenis } from "../context/LenisContext"
 
-export default function Footer() {
+export default function Footer({ openModal }) {
     const lenis = useLenis()
     const scrollTo = (href) => lenis?.scrollTo(href, { offset: -70 })
 
@@ -21,14 +21,13 @@ export default function Footer() {
                         Let's start a <br className="hidden sm:block" />
                         <span className="text-accent">project together</span>
                     </h2>
-                    <p className="text-base sm:text-xl text-white/60 max-w-2xl mx-auto mb-6 sm:mb-8 px-2 sm:px-0">
-                        We help brands grow through data-driven digital marketing strategies and creative excellence.
-                    </p>
                     <motion.a
-                        href="mailto:hello@growlyn.com?subject=Project Inquiry"
+                        href="https://wa.me/918070808080?text=Hi%20Growlyn,%20I'd%20like%20to%20discuss%20our%20project%20growth."
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block bg-white text-dark px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/90 transition-colors"
+                        className="inline-block bg-white text-dark px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/90 transition-colors cursor-pointer"
                     >
                         Get in Touch
                     </motion.a>
@@ -37,9 +36,9 @@ export default function Footer() {
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
                     <div className="col-span-2 md:col-span-2 lg:col-span-1">
                         <button onClick={() => scrollTo("#")} className="flex items-center gap-3 mb-4 sm:mb-6 group">
-                            <img 
-                                src="/logo.png" 
-                                alt="Growlyn Logo" 
+                            <img
+                                src="/logo.png"
+                                alt="Growlyn Logo"
                                 className="h-10 sm:h-12 w-auto object-contain"
                             />
                             <span className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tighter group-hover:text-accent transition-colors">
@@ -84,7 +83,18 @@ export default function Footer() {
                         <ul className="space-y-2 sm:space-y-3 text-white/60 text-sm sm:text-base">
                             {footerLinks.company.map((link) => (
                                 <li key={link.name}>
-                                    <button onClick={() => scrollTo(link.href)} className="hover:text-accent transition-colors flex items-center gap-2 group text-left">
+                                    <button 
+                                        onClick={() => {
+                                            if (link.name === "Careers" && openModal) {
+                                                openModal("careers")
+                                            } else if (link.name === "Contact" && openModal) {
+                                                openModal("contact")
+                                            } else {
+                                                scrollTo(link.href)
+                                            }
+                                        }} 
+                                        className="hover:text-accent transition-colors flex items-center gap-2 group text-left cursor-pointer"
+                                    >
                                         <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
                                         {link.name}
                                     </button>
@@ -100,10 +110,10 @@ export default function Footer() {
                                 <div className="bg-accent/20 p-1.5 sm:p-2 rounded-lg text-accent flex-shrink-0">
                                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                                 </div>
-                                <a href="mailto:hello@agency.com" className="hover:text-white transition-colors break-all">hello@agency.com</a>
+                                <a href="mailto:growlyn@gmail.com" className="hover:text-white transition-colors break-all">growlyn@gmail.com</a>
                             </li>
-                            <li className="leading-relaxed pl-8 sm:pl-12 border-l-2 border-white/10 text-white/50">
-                                123 Market St, Suite 400<br />San Francisco, CA 94103
+                            <li className="leading-relaxed pl-8 sm:pl-12 border-l-2 border-white/10 text-white/50 text-xs sm:text-sm">
+                                101, Bhawani Complex, Plot No. 67-68, 68A,<br />Sector 19A, Vashi, Navi Mumbai 400703
                             </li>
                         </ul>
                     </div>
