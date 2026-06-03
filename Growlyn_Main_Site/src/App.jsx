@@ -3,7 +3,6 @@ import { AnimatePresence } from "framer-motion"
 import { LenisProvider } from "./context/LenisContext"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
-import Clients from "./components/Clients"
 import Services from "./components/Services"
 import Portfolio from "./components/Portfolio"
 import Testimonials from "./components/Testimonials"
@@ -35,7 +34,6 @@ function App() {
             <>
               <Navbar openModal={openContactModal} />
               <Hero openModal={openContactModal} />
-              <Clients />
               <Services />
               <Portfolio />
               <Testimonials />
