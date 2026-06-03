@@ -72,11 +72,11 @@ export default function PresentationModal({ isOpen, onClose, pdfUrl = "/presenta
                         </div>
 
                         {/* PDF Viewer Body */}
-                        <div className="relative w-full aspect-video bg-white/5 overflow-hidden">
+                        <div className="relative w-full h-[70vh] sm:h-[90vh] bg-white/5 overflow-hidden">
                             {/* Skeleton Loader */}
                             {!isLoaded && (
                                 <div className="absolute inset-0 z-0 flex flex-col items-center justify-center gap-2">
-                                    <div className="w-full h-full bg-white/5 animate-pulse flex flex-col items-center justify-center px-12">
+                                    <div className="w-full h-full bg-white/10 animate-pulse flex flex-col items-center justify-center px-12">
                                         <div className="w-1/3 h-2 bg-white/10 rounded-full mb-4" />
                                         <div className="w-2/3 h-2 bg-white/10 rounded-full mb-2" />
                                         <div className="w-1/2 h-2 bg-white/10 rounded-full" />

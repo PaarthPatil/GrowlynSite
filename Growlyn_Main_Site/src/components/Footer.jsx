@@ -22,7 +22,7 @@ export default function Footer({ openModal }) {
                         <span className="text-accent">project together</span>
                     </h2>
                     <motion.a
-                        href="https://wa.me/918070808080?text=Hi%20Growlyn,%20I'd%20like%20to%20discuss%20our%20project%20growth."
+                        href="https://wa.me/918828265416?text=Hi%2C%20I%20came%20across%20your%20website%20and%20I%E2%80%99m%20interested%20in%20your%20services.%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0AService%20Required%3A%0ALocation%3A%0A%0APlease%20share%20more%20details."
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -83,16 +83,16 @@ export default function Footer({ openModal }) {
                         <ul className="space-y-2 sm:space-y-3 text-white/60 text-sm sm:text-base">
                             {footerLinks.company.map((link) => (
                                 <li key={link.name}>
-                                    <button 
+                                    <button
                                         onClick={() => {
                                             if (link.name === "Careers" && openModal) {
                                                 openModal("careers")
-                                            } else if (link.name === "Contact" && openModal) {
-                                                openModal("contact")
+                                            } else if (link.name === "Contact") {
+                                                scrollTo("#contact")
                                             } else {
                                                 scrollTo(link.href)
                                             }
-                                        }} 
+                                        }}
                                         className="hover:text-accent transition-colors flex items-center gap-2 group text-left cursor-pointer"
                                     >
                                         <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />

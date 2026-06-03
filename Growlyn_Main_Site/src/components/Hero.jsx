@@ -69,7 +69,7 @@ export default function Hero({ openModal }) {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4">
                         <button
-                            onClick={() => openModal ? openModal("contact") : scrollTo("#contact")}
+                            onClick={() => scrollTo("#contact")}
                             className="bg-white text-dark px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-white/90 active:bg-white/90 active:scale-95 transition-all w-full sm:w-auto shadow-xl select-none"
                         >
                             Start Project

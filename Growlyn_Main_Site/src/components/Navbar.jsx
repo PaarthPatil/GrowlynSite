@@ -45,7 +45,11 @@ export default function Navbar({ openModal }) {
         if (e) e.preventDefault()
 
         if (href === "#contact") {
-            if (openModal) openModal("contact")
+            if (lenis) {
+                lenis.scrollTo("#contact", { offset: 0 })
+            } else {
+                window.location.hash = "#contact"
+            }
             setIsMobileMenuOpen(false)
             return
         }
@@ -92,8 +96,8 @@ export default function Navbar({ openModal }) {
                         </a>
                     ))}
                     <button
-                        onClick={(e) => handleLinkClick(e, "#contact")}
-                        className="relative overflow-hidden bg-white text-dark px-6 py-2.5 rounded-full text-sm font-black hover:text-white transition-colors duration-300 group/cta border border-white hover:border-accent hover:bg-transparent shadow-lg shadow-white/5 hover:shadow-accent/25 hover:shadow-xl select-none"
+                        onClick={() => window.open("https://wa.me/918828265416?text=Hi%2C%20I%20came%20across%20your%20website%20and%20I%E2%80%99m%20interested%20in%20your%20services.%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0AService%20Required%3A%0ALocation%3A%0A%0APlease%20share%20more%20details.", "_blank", "noopener,noreferrer")}
+                        className="relative overflow-hidden bg-white text-dark px-6 py-2.5 rounded-full text-sm font-black hover:text-white transition-colors duration-300 group/cta border border-white hover:border-accent hover:bg-transparent shadow-lg shadow-white/5 hover:shadow-accent/25 hover:shadow-xl cursor-pointer select-none"
                     >
                         <span className="relative z-10">Get Started</span>
                         <span className="absolute inset-0 bg-accent scale-x-0 group-hover/cta:scale-x-100 transition-transform duration-500 origin-left z-0" />
@@ -133,8 +137,11 @@ export default function Navbar({ openModal }) {
                                 </button>
                             ))}
                             <button
-                                onClick={(e) => handleLinkClick(e, "#contact")}
-                                className="bg-accent text-dark text-center py-4 rounded-xl font-black mt-3 transition-colors duration-200 active:bg-accent/80 shadow-lg shadow-accent/15 select-none"
+                                onClick={() => {
+                                    window.open("https://wa.me/918828265416?text=Hi%2C%20I%20came%20across%20your%20website%20and%20I%E2%80%99m%20interested%20in%20your%20services.%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0AService%20Required%3A%0ALocation%3A%0A%0APlease%20share%20more%20details.", "_blank", "noopener,noreferrer");
+                                    setIsMobileMenuOpen(false);
+                                }}
+                                className="bg-accent text-dark text-center py-4 rounded-xl font-black mt-3 transition-colors duration-200 active:bg-accent/80 shadow-lg shadow-accent/15 cursor-pointer select-none"
                             >
                                 Get Started
                             </button>
