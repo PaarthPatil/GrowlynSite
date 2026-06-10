@@ -75,7 +75,7 @@ export const projects = [
         title: "Baba Car Accessories",
         handle: "baba.car.accessories",
         category: "Owned Audience Growth",
-        image: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800&auto=format&fit=crop",
         metrics: "44.3K Followers",
         growth: "From 0 to 44.3K followers and 873 posts",
         description: "King of Car Accessories. Building community and long-term owned audience equity."
@@ -84,7 +84,7 @@ export const projects = [
         title: "AJ Educational & Immigration",
         handle: "Study Abroad Campaigns",
         category: "Video Content & Reels",
-        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
         metrics: "1.0M Views",
         growth: "Reached 56.8L+ people in 30 days",
         description: "Educational consultation content driving high-engagement short-form video campaigns."
@@ -119,7 +119,7 @@ export const testimonials = [
         videoTitle: "FORTUNER LIGHTS? FIXED!",
         metric: "Started With Zero Digital Presence",
         description: "100% Dependent on Offline Sales. Today 85% of Their Revenue Flows Through Online Channels.",
-        thumbnail: "https://images.unsplash.com/photo-1620313437592-3c28b7e2ccbf?q=80&w=800&auto=format&fit=crop",
+        thumbnail: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop",
         videoId: "5QjYcoCLyvU" // Placeholder until actual link is provided
     }
 ];
