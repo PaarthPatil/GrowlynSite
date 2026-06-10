@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { LenisProvider } from "./context/LenisContext"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
@@ -24,14 +24,14 @@ function App() {
   return (
     <ErrorBoundary>
       <LenisProvider>
-        <main className="bg-dark min-h-screen text-white font-sans selection:bg-accent/30 selection:text-white">
+        <main className="bg-dark min-h-[100dvh] text-white font-sans selection:bg-accent/30 selection:text-white">
 
           <AnimatePresence mode="wait">
             {isLoading && <Preloader setLoading={setIsLoading} />}
           </AnimatePresence>
 
           {!isLoading && (
-            <>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
               <Navbar openModal={openContactModal} />
               <Hero openModal={openContactModal} />
               <Services />
@@ -48,7 +48,7 @@ function App() {
                   />
                 )}
               </AnimatePresence>
-            </>
+            </motion.div>
           )}
         </main>
       </LenisProvider>

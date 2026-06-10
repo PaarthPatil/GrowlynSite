@@ -62,18 +62,23 @@ export default function Portfolio() {
                                     </span>
 
                                     <div className="relative overflow-hidden border border-white/10 group-hover:border-accent/50 transition-colors duration-500">
+                                        {/* Metrics Pill Badge */}
+                                        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 bg-dark/80 backdrop-blur-md border border-accent/30 px-3.5 py-1.5 rounded-full text-xs font-black text-accent shadow-lg shadow-black/50 select-none">
+                                            {project.metrics}
+                                        </div>
+
                                         <div className="absolute inset-0 bg-gradient-to-t from-accent/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 duration-700" />
                                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-20" />
 
                                         <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }} className="relative">
-                                            <img src={project.image} alt={project.title} className={`w-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700 aspect-[16/10] sm:aspect-[16/10] md:${isLarge ? 'aspect-[16/10]' : 'aspect-[4/5]'}`} />
+                                            <img src={project.image} loading="lazy" alt={project.title} className={`w-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700 aspect-[16/10] sm:aspect-[16/10] md:${isLarge ? 'aspect-[16/10]' : 'aspect-[4/5]'}`} />
                                         </motion.div>
 
-                                        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
-                                            <div className="bg-white text-dark px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-1.5 sm:gap-2 font-bold text-xs sm:text-sm">
-                                                <span className="hidden sm:inline">View Case Study</span>
-                                                <span className="sm:hidden">View</span>
-                                                <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent md:bg-dark/80 md:backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-30 flex flex-col justify-end p-4 sm:p-6 md:p-10 pointer-events-none md:pointer-events-auto">
+                                            <div className="translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-700 ease-out">
+                                                <h4 className="text-accent font-black text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 drop-shadow-lg">{project.metrics}</h4>
+                                                <p className="text-white font-bold text-sm sm:text-lg md:text-xl leading-snug mb-3 sm:mb-4">{project.growth}</p>
+                                                <p className="text-white/80 text-xs sm:text-sm md:text-base leading-relaxed hidden sm:block">{project.description}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -82,11 +87,17 @@ export default function Portfolio() {
                                 <div className="relative">
                                     <div className="absolute -top-2 sm:-top-3 left-0 w-0 h-[2px] bg-accent group-hover:w-8 sm:group-hover:w-12 transition-all duration-500" />
                                     <div className="flex justify-between items-start gap-3 sm:gap-4">
-                                        <div>
-                                            <span className="text-accent text-[10px] sm:text-xs uppercase tracking-widest font-bold mb-1 sm:mb-2 block">{project.category}</span>
-                                            <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white leading-tight">{project.title}</h3>
+                                        <div className="w-full">
+                                            <div className="flex items-center gap-2 mb-1 sm:mb-1.5">
+                                                <span className="text-accent text-[10px] sm:text-xs uppercase tracking-widest font-bold block">{project.category}</span>
+                                                {project.handle && (
+                                                    <span className="text-white/40 text-[10px] sm:text-xs select-none">| @{project.handle}</span>
+                                                )}
+                                            </div>
+                                            <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white leading-tight mb-2 group-hover:text-accent transition-colors duration-300">{project.title}</h3>
+                                            {/* Details are now shown on hover inside the image overlay */}
                                         </div>
-                                        <div className="text-white/20 group-hover:text-accent/60 transition-colors flex-shrink-0">
+                                        <div className="text-white/20 group-hover:text-accent/60 transition-colors flex-shrink-0 pt-6">
                                             <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                                         </div>
                                     </div>

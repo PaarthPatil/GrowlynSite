@@ -20,40 +20,42 @@ export const navLinks = [
     { name: "Contact", href: "#contact" },
 ];
 
+export const whatsappLink = "https://wa.me/918828265416?text=Hi%2C%20I%20came%20across%20your%20website%20and%20I%E2%80%99m%20interested%20in%20your%20services.%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0AService%20Required%3A%0ALocation%3A%0A%0APlease%20share%20more%20details.";
+
 export const heroData = {
-    title: "GROWTH PARTNERS",
-    subtitle: "Digital Marketing Agency",
-    description: "We help ambitious brands scale through data-driven strategies and creative excellence.",
-    ctaPrimary: "Start Project",
-    ctaSecondary: "View Case Studies"
+    title: "GROW REAL GO VIRAL",
+    subtitle: "Growlyn",
+    description: "We Think Like Founders, Work Like Owners, and Play for Real Results.",
+    ctaPrimary: "Let's Talk",
+    ctaSecondary: "Our Work"
 };
 
 export const services = [
     {
         id: "01",
-        title: "SEO",
-        description: "Dominate search rankings with data-driven keyword strategies and technical audits.",
+        title: "Brand & Communication Strategy",
+        description: "We Provide Services That Define Every Aspect of a Brands Universe. Identifying Customer Cohorts and How to Reach Them.",
         icon: Search,
         coverImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=600&auto=format&fit=crop"
     },
     {
         id: "02",
-        title: "PPC Advertising",
-        description: "Maximize ROI with targeted ad campaigns on Google, Facebook, and LinkedIn.",
+        title: "Marketing Automation",
+        description: "Streamline your digital storytelling and consistent communication across all channels.",
         icon: Target,
         coverImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=600&auto=format&fit=crop"
     },
     {
         id: "03",
-        title: "Social Media",
-        description: "Build a loyal community and drive engagement with creative content strategies.",
+        title: "Category Performance Marketing",
+        description: "CPC & CPM Campaigns that justify value and turn your online presence into a competitive advantage.",
         icon: Share2,
         coverImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop"
     },
     {
         id: "04",
         title: "Organic Content Marketing",
-        description: "Tell your brand story with compelling copy that converts visitors into customers.",
+        description: "Creating Intellectual Properties That Keep Them Loyal to You. Long-term equity that compounds.",
         icon: PenTool,
         coverImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=600&auto=format&fit=crop"
     },
@@ -61,43 +63,65 @@ export const services = [
 
 export const projects = [
     {
-        title: "Apex SaaS Growth",
-        category: "SEO",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+        title: "Top Fit",
+        handle: "top.fit.in",
+        category: "Organic Content Marketing",
+        image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop",
+        metrics: "32.1K Followers",
+        growth: "Grew from 0 to 32.1K followers with 240 posts",
+        description: "Custom comfort for every ride | Premium seat covers made to fit your style."
     },
     {
-        title: "Bloom D2C Scale",
-        category: "PPC Campaigns",
-        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop",
+        title: "Baba Car Accessories",
+        handle: "baba.car.accessories",
+        category: "Owned Audience Growth",
+        image: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=800&auto=format&fit=crop",
+        metrics: "44.3K Followers",
+        growth: "From 0 to 44.3K followers and 873 posts",
+        description: "King of Car Accessories. Building community and long-term owned audience equity."
     },
     {
-        title: "Zenith Fintech Launch",
-        category: "Growth Strategy",
-        image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop",
+        title: "AJ Educational & Immigration",
+        handle: "Study Abroad Campaigns",
+        category: "Video Content & Reels",
+        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop",
+        metrics: "1.0M Views",
+        growth: "Reached 56.8L+ people in 30 days",
+        description: "Educational consultation content driving high-engagement short-form video campaigns."
     },
     {
-        title: "Velo Apparel Campaign",
-        category: "Social Scaling",
-        image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop",
-    },
+        title: "Gurukripa Motors & Shalom",
+        handle: "Digital Transformation",
+        category: "Brand Strategy & Detailing",
+        image: "https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?q=80&w=800&auto=format&fit=crop",
+        metrics: "85% Online Revenue",
+        growth: "From 0% digital to 85% revenue from online channels",
+        description: "Transforming local offline businesses into digital powerhouses through search & social strategy."
+    }
 ];
 
 export const testimonials = [
     {
-        quote: "Growlyn completely transformed our organic acquisition. Our SEO traffic grew by 320% in under 5 months, and their team felt like an extension of our own.",
-        author: "Sarah Jenkins",
-        role: "VP of Growth, Apex SaaS",
+        videoTitle: "CAR INTERIOR MADE SIMPLE",
+        metric: "From 0 Followers To A Community",
+        description: "This is Owned Audience. This is Long term Equity. This is Growth That Compounds.",
+        thumbnail: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop",
+        videoId: "5QjYcoCLyvU"
     },
     {
-        quote: "Their paid advertising strategies are highly optimized. We saw our return on ad spend (ROAS) double within the first quarter of collaboration.",
-        author: "Michael Patel",
-        role: "Founder, Bloom D2C",
+        videoTitle: "STUDY ABROAD",
+        metric: "Reached 56.8L+ People in 30 Days",
+        description: "5,685,600 Accounts reached. 5,171,699 Views.",
+        thumbnail: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
+        videoId: "5QjYcoCLyvU" // Placeholder until actual link is provided
     },
     {
-        quote: "A world-class strategic partner. They helped us navigate our fintech launch, delivering growth metrics that exceeded our board targets.",
-        author: "Elena Rostova",
-        role: "CMO, Zenith Finance",
-    },
+        videoTitle: "FORTUNER LIGHTS? FIXED!",
+        metric: "Started With Zero Digital Presence",
+        description: "100% Dependent on Offline Sales. Today 85% of Their Revenue Flows Through Online Channels.",
+        thumbnail: "https://images.unsplash.com/photo-1620313437592-3c28b7e2ccbf?q=80&w=800&auto=format&fit=crop",
+        videoId: "5QjYcoCLyvU" // Placeholder until actual link is provided
+    }
 ];
 
 
@@ -125,28 +149,26 @@ export const posts = [
 
 export const footerLinks = {
     services: [
-        { name: "SEO", href: "#services" },
-        { name: "PPC Advertising", href: "#services" },
-        { name: "Social Media", href: "#services" },
+        { name: "Brand & Communication Strategy", href: "#services" },
+        { name: "Marketing Automation", href: "#services" },
+        { name: "Category Performance Marketing", href: "#services" },
         { name: "Organic Content Marketing", href: "#services" },
     ],
     company: [
         { name: "Careers", href: "#contact" },
-        { name: "Contact", href: "#contact" },
+        { name: "Contact Us", href: "#contact" },
     ],
     social: [
         { Icon: Instagram, href: "https://www.instagram.com/growwithgrowlyn/" },
-        { Icon: GoogleIcon, href: "https://share.google/jL8rtKtHbyecT50MN" },
+        { Icon: Facebook, href: "https://www.facebook.com/growwithgrowlyn/" },
     ]
 };
 
 export const brands = [
-    { name: "TechStart", metric: "3x Leads", tagline: "B2B SaaS Growth" },
-    { name: "EcoBrand", metric: "+180% Sales", tagline: "Sustainable D2C" },
-    { name: "Fintech Scale", metric: "5x ROI", tagline: "Secure Payments" },
-    { name: "FashionHQ", metric: "2.5M Reach", tagline: "E-Commerce Launch" },
-    { name: "Apex Global", metric: "+92% SEO Traffic", tagline: "Logistics Hub" },
-    { name: "Vortex Digital", metric: "4.2x Conversions", tagline: "AI Content Studio" },
-    { name: "Pulse Media", metric: "+300% Engagement", tagline: "Social Network" },
-    { name: "Growlyn Pro", metric: "Partnership Creator", tagline: "Global Scaling" },
+    { name: "Gurukripa Motors", metric: "85% Online Sales", tagline: "Automotive Services Partner" },
+    { name: "shamika's marvels", metric: "Brand Growth", tagline: "Beauty Salon & Spa" },
+    { name: "AJ Educational", metric: "5.6M Reach", tagline: "Immigration Consultants Inc." },
+    { name: "SCHRAMM LOGISTICS", metric: "Global Scale", tagline: "Worldwide Delivery Partner" },
+    { name: "Crowning Glorys", metric: "Digital Presence", tagline: "Premium Services" },
+    { name: "Shalom", metric: "44.3K Followers", tagline: "CAR AND BIKE DETAILING" },
 ];

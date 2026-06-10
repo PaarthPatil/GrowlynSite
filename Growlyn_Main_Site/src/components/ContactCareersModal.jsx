@@ -89,11 +89,14 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
 
             {/* Modal Content Card */}
             <motion.div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modal-title"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                 transition={{ type: "spring", damping: 25, stiffness: 350 }}
-                className="relative w-full max-w-lg bg-dark border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] z-10"
+                className="relative w-full max-w-lg bg-dark border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90dvh] z-10"
             >
                 {/* Background radial glow */}
                 <div className="absolute top-0 right-0 w-48 h-48 bg-accent/10 rounded-full blur-[80px] pointer-events-none z-0" />
@@ -102,7 +105,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-5 border-b border-white/15 bg-white/[0.02] backdrop-blur-sm z-10 shrink-0">
                     <div>
-                        <h3 className="text-xl sm:text-2xl font-heading font-black text-white tracking-tight uppercase">
+                        <h3 id="modal-title" className="text-xl sm:text-2xl font-heading font-black text-white tracking-tight uppercase">
                             {activeTab === "contact" ? "Start A Project" : "Join Our Team"}
                         </h3>
                         <p className="text-[10px] sm:text-xs text-white/40 uppercase tracking-widest mt-1">
@@ -195,7 +198,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             placeholder="John Doe"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.name ? "border-red-500" : "border-white/10 focus:border-accent"
-                                            } rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white placeholder-white/20 outline-none transition-all`}
+                                            } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
                                         />
                                         {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name}</p>}
                                     </div>
@@ -212,7 +215,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             placeholder="john@example.com"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.email ? "border-red-500" : "border-white/10 focus:border-accent"
-                                            } rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white placeholder-white/20 outline-none transition-all`}
+                                            } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
                                         />
                                         {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email}</p>}
                                     </div>
@@ -226,7 +229,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             <select
                                                 value={contactForm.service}
                                                 onChange={(e) => setContactForm({ ...contactForm, service: e.target.value })}
-                                                className="w-full bg-white/[0.03] border border-white/10 focus:border-accent rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white outline-none transition-all appearance-none cursor-pointer"
+                                                className="w-full bg-white/[0.03] border border-white/10 focus:border-accent rounded-xl px-4 py-3 sm:py-3.5 text-base text-white outline-none transition-all appearance-none cursor-pointer"
                                             >
                                                 <option className="bg-dark text-white" value="SEO">SEO</option>
                                                 <option className="bg-dark text-white" value="PPC Advertising">PPC Advertising</option>
@@ -251,7 +254,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             rows="3"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.message ? "border-red-500" : "border-white/10 focus:border-accent"
-                                            } rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white placeholder-white/20 outline-none transition-all resize-none`}
+                                            } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all resize-none`}
                                         />
                                         {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
                                     </div>
@@ -271,7 +274,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             placeholder="Jane Doe"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.name ? "border-red-500" : "border-white/10 focus:border-accent"
-                                            } rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white placeholder-white/20 outline-none transition-all`}
+                                            } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
                                         />
                                         {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name}</p>}
                                     </div>
@@ -288,7 +291,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             placeholder="jane@example.com"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.email ? "border-red-500" : "border-white/10 focus:border-accent"
-                                            } rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white placeholder-white/20 outline-none transition-all`}
+                                            } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
                                         />
                                         {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email}</p>}
                                     </div>
@@ -302,7 +305,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             <select
                                                 value={careersForm.role}
                                                 onChange={(e) => setCareersForm({ ...careersForm, role: e.target.value })}
-                                                className="w-full bg-white/[0.03] border border-white/10 focus:border-accent rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white outline-none transition-all appearance-none cursor-pointer"
+                                                className="w-full bg-white/[0.03] border border-white/10 focus:border-accent rounded-xl px-4 py-3 sm:py-3.5 text-base text-white outline-none transition-all appearance-none cursor-pointer"
                                             >
                                                 <option className="bg-dark text-white" value="Senior SEO Strategist">Senior SEO Strategist</option>
                                                 <option className="bg-dark text-white" value="PPC Campaign Manager">PPC Campaign Manager</option>
@@ -328,7 +331,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             placeholder="https://myportfolio.com or Drive link"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.resumeUrl ? "border-red-500" : "border-white/10 focus:border-accent"
-                                            } rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white placeholder-white/20 outline-none transition-all`}
+                                            } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
                                         />
                                         {errors.resumeUrl && <p className="text-xs text-red-500 font-medium">{errors.resumeUrl}</p>}
                                     </div>
@@ -345,7 +348,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             rows="3"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.message ? "border-red-500" : "border-white/10 focus:border-accent"
-                                            } rounded-xl px-4 py-3 sm:py-3.5 text-sm sm:text-base text-white placeholder-white/20 outline-none transition-all resize-none`}
+                                            } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all resize-none`}
                                         />
                                         {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
                                     </div>

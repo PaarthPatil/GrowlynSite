@@ -36,6 +36,7 @@ export default function Services() {
                                     <img 
                                         src={service.coverImage} 
                                         alt={service.title} 
+                                        loading="lazy"
                                         className="w-full h-full object-cover filter grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700" 
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent" />
@@ -54,10 +55,10 @@ export default function Services() {
                                 )}
                             </div>
 
-                            <div className="relative z-10 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <div className="w-10 sm:w-12 h-[2px] bg-accent mb-4 sm:mb-6 scale-0 group-hover:scale-100 transition-transform duration-500 origin-left" />
+                            <div className="relative z-10 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="w-10 sm:w-12 h-[2px] bg-accent mb-4 sm:mb-6 scale-100 md:scale-0 md:group-hover:scale-100 transition-transform duration-500 origin-left" />
                                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">{service.title}</h3>
-                                <p className="text-white/70 sm:text-white/80 leading-relaxed text-sm group-hover:text-white transition-colors duration-300">
+                                <p className="text-white/70 sm:text-white/80 leading-relaxed text-sm md:group-hover:text-white transition-colors duration-300">
                                     {service.description}
                                 </p>
                             </div>

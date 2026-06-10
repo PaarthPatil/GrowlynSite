@@ -1,5 +1,5 @@
 import { Mail, ArrowUpRight } from "lucide-react"
-import { footerLinks } from "../constants"
+import { footerLinks, whatsappLink } from "../constants"
 import { motion } from "framer-motion"
 import { useLenis } from "../context/LenisContext"
 
@@ -22,7 +22,7 @@ export default function Footer({ openModal }) {
                         <span className="text-accent">project together</span>
                     </h2>
                     <motion.a
-                        href="https://wa.me/918828265416?text=Hi%2C%20I%20came%20across%20your%20website%20and%20I%E2%80%99m%20interested%20in%20your%20services.%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0AService%20Required%3A%0ALocation%3A%0A%0APlease%20share%20more%20details."
+                        href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}

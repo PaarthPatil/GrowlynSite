@@ -4,7 +4,7 @@ import { Menu, X, ChevronRight } from "lucide-react"
 import { cn } from "../lib/utils"
 import { useLenis } from "../context/LenisContext"
 
-import { navLinks } from "../constants"
+import { navLinks, whatsappLink } from "../constants"
 
 export default function Navbar({ openModal }) {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -40,6 +40,18 @@ export default function Navbar({ openModal }) {
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
+
+    // Body scroll lock when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isMobileMenuOpen])
 
     const handleLinkClick = (e, href) => {
         if (e) e.preventDefault()
@@ -96,7 +108,7 @@ export default function Navbar({ openModal }) {
                         </a>
                     ))}
                     <button
-                        onClick={() => window.open("https://wa.me/918828265416?text=Hi%2C%20I%20came%20across%20your%20website%20and%20I%E2%80%99m%20interested%20in%20your%20services.%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0AService%20Required%3A%0ALocation%3A%0A%0APlease%20share%20more%20details.", "_blank", "noopener,noreferrer")}
+                        onClick={() => window.open(whatsappLink, "_blank", "noopener,noreferrer")}
                         className="relative overflow-hidden bg-white text-dark px-6 py-2.5 rounded-full text-sm font-black hover:text-white transition-colors duration-300 group/cta border border-white hover:border-accent hover:bg-transparent shadow-lg shadow-white/5 hover:shadow-accent/25 hover:shadow-xl cursor-pointer select-none"
                     >
                         <span className="relative z-10">Get Started</span>
@@ -138,7 +150,7 @@ export default function Navbar({ openModal }) {
                             ))}
                             <button
                                 onClick={() => {
-                                    window.open("https://wa.me/918828265416?text=Hi%2C%20I%20came%20across%20your%20website%20and%20I%E2%80%99m%20interested%20in%20your%20services.%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0AService%20Required%3A%0ALocation%3A%0A%0APlease%20share%20more%20details.", "_blank", "noopener,noreferrer");
+                                    window.open(whatsappLink, "_blank", "noopener,noreferrer");
                                     setIsMobileMenuOpen(false);
                                 }}
                                 className="bg-accent text-dark text-center py-4 rounded-xl font-black mt-3 transition-colors duration-200 active:bg-accent/80 shadow-lg shadow-accent/15 cursor-pointer select-none"

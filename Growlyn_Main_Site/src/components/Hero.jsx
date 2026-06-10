@@ -6,16 +6,16 @@ import { Play } from "lucide-react"
 
 export default function Hero({ openModal }) {
     const lenis = useLenis()
-    const [isMenuOpen, setIsMenuOpen] = useState(false) // Assuming we might need this for consistency, but the request was specifically for the modal
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     const scrollTo = (href) => {
+        if (lenis) lenis.scrollTo(href, { offset: -70 })
         if (lenis) lenis.scrollTo(href, { offset: -70 })
         else window.location.href = href
     }
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 border-b border-white/10 px-4 sm:px-6 overflow-hidden">
+        <section className="relative min-h-[100dvh] flex items-center justify-center pt-16 sm:pt-20 border-b border-white/10 px-4 sm:px-6 overflow-hidden">
             {/* Ambient Background Mesh Spheres */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 {/* Sphere 1: Top Left Violet Glow */}

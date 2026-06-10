@@ -1,17 +1,20 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { Star } from "lucide-react"
+import { Play } from "lucide-react"
 
 import { testimonials } from "../constants"
 
 export default function Testimonials() {
+    const [playingVideo, setPlayingVideo] = useState(null);
+
     return (
         <section id="testimonials" className="py-20 sm:py-32 bg-dark border-t border-white/10">
-            <div className="container mx-auto px-4 sm:px-6">
+            <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
                 <h2 className="text-3xl sm:text-4xl md:text-6xl font-heading font-black text-white mb-12 sm:mb-20 text-center uppercase tracking-tighter">
                     Client Feedback
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 py-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 py-4">
                     {testimonials.map((item, index) => (
                         <motion.div
                             key={index}
@@ -19,28 +22,54 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.15, duration: 0.6 }}
-                            whileHover={{ y: -8, scale: 1.01 }}
-                            className="backdrop-blur-sm bg-white/[0.01] hover:bg-white/[0.03] border border-white/5 hover:border-accent/30 rounded-2xl p-8 sm:p-10 flex flex-col justify-between transition-all duration-500 shadow-2xl relative overflow-hidden group cursor-pointer"
+                            className="flex flex-col items-center group h-full"
                         >
-                            {/* Inner ambient corner glow */}
-                            <div className="absolute top-0 right-0 w-28 h-28 bg-accent/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                            <div 
+                                className="relative w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-accent/20 cursor-pointer group-hover:border-accent/60 transition-colors duration-500 bg-black"
+                                onClick={() => setPlayingVideo(index)}
+                            >
+                                {playingVideo === index && item.videoId ? (
+                                    <iframe 
+                                        src={`https://www.youtube.com/embed/${item.videoId}?autoplay=1&controls=1&modestbranding=1&rel=0`} 
+                                        title={item.videoTitle}
+                                        className="absolute inset-0 w-full h-full border-none"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowFullScreen
+                                    ></iframe>
+                                ) : (
+                                    <>
+                                        <img 
+                                            src={item.thumbnail} 
+                                            alt={item.videoTitle} 
+                                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
+                                        
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:bg-accent/80 group-hover:scale-110 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                                                <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white ml-1 sm:ml-2" />
+                                            </div>
+                                        </div>
 
-                            <div className="relative z-10">
-                                <div className="mb-6 flex justify-center md:justify-start gap-1">
-                                    {[1, 2, 3, 4, 5].map(i => (
-                                        <Star key={i} className="w-4 h-4 sm:w-4 sm:h-4 fill-accent text-accent" />
-                                    ))}
-                                </div>
-                                <p className="text-base sm:text-lg text-white/95 font-medium mb-8 leading-relaxed italic text-center md:text-left select-none">
-                                    "{item.quote}"
-                                </p>
+                                        <div className="absolute bottom-6 left-0 w-full px-6 text-center">
+                                            <h3 className="text-white font-black text-xl sm:text-2xl uppercase tracking-wider drop-shadow-lg leading-tight">
+                                                {item.videoTitle}
+                                            </h3>
+                                        </div>
+                                    </>
+                                )}
                             </div>
+                            
+                            <button 
+                                onClick={() => setPlayingVideo(index)}
+                                className="mt-6 text-accent font-black text-xl uppercase tracking-widest hover:text-white transition-colors border-b-2 border-accent hover:border-white pb-1 inline-block"
+                            >
+                                {playingVideo === index ? "NOW PLAYING" : "WATCH NOW"}
+                            </button>
 
-                            <div className="relative z-10 border-t border-white/10 pt-4 text-center md:text-left flex flex-col justify-end">
-                                <h4 className="text-white/95 font-black uppercase tracking-wider sm:tracking-widest text-xs sm:text-sm group-hover:text-accent transition-colors duration-300">
-                                    {item.author}
-                                </h4>
-                                <p className="text-white/40 text-xs mt-1 font-medium">{item.role}</p>
+                            <div className="mt-6 text-center px-4 bg-white/[0.02] rounded-xl p-6 border border-white/5 w-full flex-grow flex flex-col justify-center transition-colors hover:bg-white/[0.04]">
+                                <h4 className="text-white font-bold text-base sm:text-lg mb-3 leading-snug">{item.metric}</h4>
+                                <p className="text-white/70 text-xs sm:text-sm leading-relaxed">{item.description}</p>
                             </div>
                         </motion.div>
                     ))}

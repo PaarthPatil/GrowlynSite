@@ -21,7 +21,7 @@ class ErrorBoundary extends React.Component {
         if (this.state.hasError) {
             // High-end fallback UI
             return (
-                <div className="min-h-screen bg-dark text-white flex flex-col items-center justify-center p-6 text-center font-sans">
+                <div className="min-h-[100dvh] bg-dark text-white flex flex-col items-center justify-center p-6 text-center font-sans">
                     <div className="max-w-md w-full bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md">
                         <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
                             <AlertTriangle className="w-8 h-8 text-accent" />
