@@ -28,14 +28,25 @@ export default function Testimonials() {
                                 className="relative w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-accent/20 cursor-pointer group-hover:border-accent/60 transition-colors duration-500 bg-black"
                                 onClick={() => setPlayingVideo(index)}
                             >
-                                {playingVideo === index && item.videoId ? (
-                                    <iframe 
-                                        src={`https://www.youtube.com/embed/${item.videoId}?autoplay=1&controls=1&modestbranding=1&rel=0`} 
-                                        title={item.videoTitle}
-                                        className="absolute inset-0 w-full h-full border-none"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                        allowFullScreen
-                                    ></iframe>
+                                {playingVideo === index && (item.videoId || item.instagramId) ? (
+                                    item.instagramId ? (
+                                        <iframe 
+                                            src={`https://www.instagram.com/reel/${item.instagramId}/embed/`} 
+                                            title={item.videoTitle}
+                                            className="absolute inset-0 w-full h-full border-none"
+                                            allowTransparency="true"
+                                            allow="encrypted-media"
+                                            scrolling="no"
+                                        ></iframe>
+                                    ) : (
+                                        <iframe 
+                                            src={`https://www.youtube.com/embed/${item.videoId}?autoplay=1&controls=1&modestbranding=1&rel=0`} 
+                                            title={item.videoTitle}
+                                            className="absolute inset-0 w-full h-full border-none"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                            allowFullScreen
+                                        ></iframe>
+                                    )
                                 ) : (
                                     <>
                                         <img 

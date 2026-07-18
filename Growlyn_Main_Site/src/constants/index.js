@@ -2,17 +2,17 @@
 import React from "react"
 import { Facebook, Instagram, Search, Target, Share2, PenTool } from "lucide-react"
 
-const GoogleIcon = (props) => 
-    React.createElement("svg", { 
-        viewBox: "0 0 24 24", 
-        fill: "currentColor", 
-        className: props.className, 
-        style: props.style 
-    }, 
-    React.createElement("path", { 
-        d: "M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.51 0-6.377-2.87-6.377-6.39 0-3.52 2.867-6.39 6.377-6.39 1.622 0 3.098.602 4.228 1.688l3.055-3.057C19.243 2.502 15.992 1.5 12.24 1.5 6.333 1.5 1.5 6.333 1.5 12.24s4.833 10.74 10.74 10.74c5.908 0 10.74-4.833 10.74-10.74 0-.743-.082-1.465-.219-2.16H12.24z" 
-    })
-);
+const GoogleIcon = (props) =>
+    React.createElement("svg", {
+        viewBox: "0 0 24 24",
+        fill: "currentColor",
+        className: props.className,
+        style: props.style
+    },
+        React.createElement("path", {
+            d: "M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.51 0-6.377-2.87-6.377-6.39 0-3.52 2.867-6.39 6.377-6.39 1.622 0 3.098.602 4.228 1.688l3.055-3.057C19.243 2.502 15.992 1.5 12.24 1.5 6.333 1.5 1.5 6.333 1.5 12.24s4.833 10.74 10.74 10.74c5.908 0 10.74-4.833 10.74-10.74 0-.743-.082-1.465-.219-2.16H12.24z"
+        })
+    );
 
 export const navLinks = [
     { name: "Services", href: "#services" },
@@ -106,21 +106,21 @@ export const testimonials = [
         metric: "From 0 Followers To A Community",
         description: "This is Owned Audience. This is Long term Equity. This is Growth That Compounds.",
         thumbnail: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop",
-        videoId: "5QjYcoCLyvU"
+        instagramId: "DNqEoAjM2_i"
     },
     {
         videoTitle: "STUDY ABROAD",
         metric: "Reached 56.8L+ People in 30 Days",
         description: "5,685,600 Accounts reached. 5,171,699 Views.",
         thumbnail: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
-        videoId: "5QjYcoCLyvU" // Placeholder until actual link is provided
+        instagramId: "C5Sew8DBYUE"
     },
     {
         videoTitle: "FORTUNER LIGHTS? FIXED!",
         metric: "Started With Zero Digital Presence",
         description: "100% Dependent on Offline Sales. Today 85% of Their Revenue Flows Through Online Channels.",
         thumbnail: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop",
-        videoId: "5QjYcoCLyvU" // Placeholder until actual link is provided
+        instagramId: "DLHxfIMo04n"
     }
 ];
 
@@ -161,6 +161,7 @@ export const footerLinks = {
     social: [
         { Icon: Instagram, href: "https://www.instagram.com/growwithgrowlyn/" },
         { Icon: Facebook, href: "https://www.facebook.com/growwithgrowlyn/" },
+        { Icon: GoogleIcon, href: "https://www.google.com/search?q=Growlyn.in" },
     ]
 };
 
