@@ -48,12 +48,7 @@ export default function Hero({ openModal }) {
             </div>
 
             <div className="container mx-auto text-center relative z-10 py-8 sm:py-0">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-5xl mx-auto"
-                >
+                <div className="max-w-5xl mx-auto">
                     <p className="text-accent font-medium mb-4 sm:mb-6 tracking-widest uppercase text-xs sm:text-sm">
                         Digital Marketing Agency
                     </p>
@@ -73,7 +68,7 @@ export default function Hero({ openModal }) {
                             Start Project
                         </button>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

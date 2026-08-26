@@ -13,13 +13,7 @@ export default function Footer({ openModal }) {
     return (
         <footer id="contact" className="bg-dark border-t border-white/10 pt-16 sm:pt-20 pb-8 sm:pb-10 overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-16 sm:mb-20 text-center"
-                >
+                <div className="mb-16 sm:mb-20 text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold font-heading text-white mb-4 sm:mb-6 leading-tight">
                         Let's start a <br className="hidden sm:block" />
                         <span className="text-accent">project together</span>
@@ -34,7 +28,7 @@ export default function Footer({ openModal }) {
                     >
                         Get in Touch
                     </motion.a>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
                     <div className="col-span-2 md:col-span-2 lg:col-span-1">

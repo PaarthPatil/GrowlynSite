@@ -21,13 +21,9 @@ export default function Services() {
 
             <div className="border-t border-b border-white/10">
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                    {services.map((service, index) => (
-                        <motion.div
+                    {services.map((service) => (
+                        <div
                             key={service.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.6 }}
                             className={`group border-b md:border-b-0 md:border-r border-white/10 last:border-b-0 last:md:border-r-0 p-6 sm:p-8 lg:p-10 min-h-[280px] sm:h-96 flex flex-col justify-between hover:bg-white/5 transition-all duration-500 cursor-pointer relative overflow-hidden`}
                         >
                             {/* Dynamic Cover Picture */}
@@ -62,7 +58,7 @@ export default function Services() {
                                     {service.description}
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

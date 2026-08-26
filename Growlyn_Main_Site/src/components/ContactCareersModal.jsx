@@ -156,9 +156,9 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                 aria-modal="true"
                 aria-labelledby="modal-title"
                 data-lenis-prevent
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ type: "spring", damping: 25, stiffness: 350 }}
                 className="relative w-full max-w-lg bg-dark border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90dvh] z-10"
             >

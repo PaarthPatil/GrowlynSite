@@ -17,6 +17,8 @@ const GoogleIcon = (props) =>
 export const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Work", href: "#work" },
+    { name: "Insights", href: "#insights" },
+    { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
 ];
 
@@ -124,27 +126,132 @@ export const testimonials = [
     }
 ];
 
+export const blogPosts = [
+    {
+        id: "performance-marketing-2026",
+        category: "Performance Marketing",
+        title: "Scaling Paid Acquisition in India: What Works Beyond Vanity Metrics",
+        date: "Feb 2026",
+        readTime: "5 min read",
+        author: "Growlyn Strategy Desk",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",
+        excerpt: "Modern performance marketing demands creative velocity, first-party customer cohort tracking, and strict unit economics over blind scale.",
+        content: [
+            {
+                heading: "The Paradigm Shift in Paid Acquisition",
+                body: "Relying purely on algorithm optimizations without distinct creative angles is no longer a viable growth model. Platforms like Meta and Google now demand that brands function like media houses — continually testing audience hypotheses through targeted angles, hook testing, and conversion-engineered landing pages."
+            },
+            {
+                heading: "1. Creative As The Primary Targeting Lever",
+                body: "In modern ad networks, the creative itself dictates the audience pool. By engineering distinct hooks for varying customer cohorts (e.g., price-sensitive buyers vs. quality-first enterprise purchasers), algorithms route ads to high-intent segments without hyper-restrictive demographic filters."
+            },
+            {
+                heading: "2. The Retention & Unit Economics Equation",
+                body: "Acquisition without retention is financial attrition. At Growlyn, we evaluate blending Customer Acquisition Cost (CAC) against 90-day Customer Lifetime Value (LTV). Driving first purchases must seamlessly synchronize with automated remarketing and high-touch community retention."
+            },
+            {
+                heading: "3. First-Party Tracking Architecture",
+                body: "With browser tracking privacy regulations tightening, server-side APIs (CAPI) and clean data attribution models are mandatory infrastructure requirements for any business deploying capital at scale."
+            }
+        ]
+    },
+    {
+        id: "owned-audience-brand-equity",
+        category: "Organic Ecosystems",
+        title: "The Owned Audience Playbook: Why Communities Outlast Algorithms",
+        date: "Jan 2026",
+        readTime: "4 min read",
+        author: "Content Strategy Group",
+        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=900&auto=format&fit=crop",
+        excerpt: "Renting attention through ad spend is transactional. Constructing proprietary content distribution channels creates compounding enterprise value.",
+        content: [
+            {
+                heading: "Renting Attention vs. Owning Communities",
+                body: "Every dollar invested in paid ads stops generating returns the moment the campaign is turned off. Conversely, constructing high-retention video formats, educational authority, and genuine communities compounds in organic reach, lower CAC, and unmatched referral momentum."
+            },
+            {
+                heading: "The 3 Pillars of Compounding Content",
+                body: "High-performing brands focus on three core content categories: Proof of Authority (behind-the-scenes engineering and execution), Relatable Problem-Solving (short-form reels resolving real consumer pain points), and Cultural Relevance (participating naturally in market conversations)."
+            },
+            {
+                heading: "Converting Viewers Into Loyal Advocates",
+                body: "Viral reach without clear conversion pathways is wasted attention. Every piece of cornerstone organic content must funnel engaged audiences into owned touchpoints — WhatsApp channels, email newsletters, and direct inquiries."
+            }
+        ]
+    },
+    {
+        id: "offline-to-digital-transformation",
+        category: "Business Transformation",
+        title: "From 0% to 85% Digital Revenue: Transitioning Established Businesses",
+        date: "Jan 2026",
+        readTime: "6 min read",
+        author: "Enterprise Growth Division",
+        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=900&auto=format&fit=crop",
+        excerpt: "How traditional brick-and-mortar brands in automotive, immigration, and retail unlock exponential scale by re-engineering customer acquisition funnels.",
+        content: [
+            {
+                heading: "Overcoming the Traditional Footfall Dependency",
+                body: "Legacy businesses often rely on geographic footfall and local word-of-mouth. While established reputations provide strong foundational trust, growth caps quickly when operational capacity isn't backed by high-intent digital pipelines."
+            },
+            {
+                heading: "Re-Engineering the Inquiry Pipeline",
+                body: "By capturing localized search intent, showcasing verified work transformations via vertical video, and implementing instant conversational lead qualification (WhatsApp and automated scheduling), brands convert passive prospects into high-ticket clients."
+            },
+            {
+                heading: "The Multiplier Effect",
+                body: "Digital transformation does not replace existing operations; it amplifies them. Transparent proof-of-work, Google Business optimization, and omni-channel remarketing ensure your brand dominates local market share against less modern competitors."
+            }
+        ]
+    }
+];
 
+export const faqData = [
+    {
+        question: "How does Growlyn structure client engagements?",
+        answer: "We operate on dedicated strategic partnerships rather than generic task-based scopes. Each engagement begins with a comprehensive brand discovery and infrastructure review, followed by phased roadmaps focusing on paid acquisition, content architecture, or full-funnel digital transformation."
+    },
+    {
+        question: "What differentiates Growlyn from traditional agencies?",
+        answer: "We think like founders and execute like owners. We don't focus on superficial vanity metrics like empty impressions or low-intent likes. Our work is benchmarked against real commercial outcomes: pipeline revenue, lower acquisition costs (CAC), owned audience retention, and verified return on ad spend (ROAS)."
+    },
+    {
+        question: "What typical timelines should we anticipate for tangible impact?",
+        answer: "For performance ad campaigns, baseline testing and algorithmic stabilization typically yield qualified lead traction within 14 to 28 days. Comprehensive organic brand architecture and owned community compounding show substantial momentum within 60 to 90 days."
+    },
+    {
+        question: "What industries and company sizes do you partner with?",
+        answer: "We partner with ambitious enterprises and high-growth challenger brands across D2C, automotive, educational immigration, premium lifestyle, and professional services. Our methodologies scale seamlessly whether transitioning established regional businesses or accelerating emerging brands."
+    },
+    {
+        question: "How are reporting and communication managed?",
+        answer: "Transparency is core to our operations. Partners receive structured weekly performance updates, live real-time reporting dashboards, and dedicated strategic alignment calls with our lead specialists."
+    },
+    {
+        question: "How are intellectual property and confidentiality handled?",
+        answer: "Complete confidentiality is strictly preserved under reciprocal non-disclosure agreements (NDAs). All marketing assets, creative repositories, customer data, and ad accounts remain 100% owned by your organization."
+    }
+];
 
-export const posts = [
-    {
-        category: "Marketing",
-        title: "The Future of SEO in 2026",
-        date: "Oct 24, 2025",
-        image: "https://placehold.co/600x400/222222/FFFFFF?text=SEO",
-    },
-    {
-        category: "Design",
-        title: "Why Minimalist Design Converts Better",
-        date: "Oct 18, 2025",
-        image: "https://placehold.co/600x400/222222/FFFFFF?text=Design",
-    },
-    {
-        category: "Strategy",
-        title: "Scaling Your Ad Spend Profitably",
-        date: "Oct 12, 2025",
-        image: "https://placehold.co/600x400/222222/FFFFFF?text=Scale",
-    },
+export const onboardingServices = [
+    "Category Performance Marketing (Paid Ads & ROAS)",
+    "Brand & Communication Strategy",
+    "Organic Content & Owned Audience Ecosystems",
+    "Marketing Automation & Retention Funnels",
+    "Comprehensive Digital Transformation"
+];
+
+export const onboardingBudgets = [
+    "₹50,000 – ₹1,00,000 / month",
+    "₹1,00,000 – ₹2,50,000 / month",
+    "₹2,50,000 – ₹5,00,000 / month",
+    "₹5,00,000+ / month",
+    "Custom Project Engagement"
+];
+
+export const onboardingTimelines = [
+    "Immediate (Within 1-2 weeks)",
+    "Within 30 days",
+    "Next Quarter Planning"
 ];
 
 export const contactInfo = {
@@ -179,5 +286,5 @@ export const brands = [
     { name: "AJ Educational", metric: "5.6M Reach", tagline: "Immigration Consultants Inc." },
     { name: "SCHRAMM LOGISTICS", metric: "Global Scale", tagline: "Worldwide Delivery Partner" },
     { name: "Crowning Glorys", metric: "Digital Presence", tagline: "Premium Services" },
-    { name: "Shalom", metric: "44.3K Followers", tagline: "CAR AND BIKE DETAILING" },
+    { name: "Shalom", metric: "44.3K Followers", tagline: "Car & Bike Detailing" },
 ];

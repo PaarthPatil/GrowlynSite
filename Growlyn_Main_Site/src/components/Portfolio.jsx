@@ -12,31 +12,19 @@ export default function Portfolio() {
             <div className="absolute top-1/2 left-0 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-accent/5 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none -translate-y-1/2" />
 
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="flex items-baseline justify-between mb-3 sm:mb-4"
-                >
+                <div className="flex items-baseline justify-between mb-3 sm:mb-4">
                     <span className="text-accent font-medium tracking-widest uppercase text-xs sm:text-sm">Portfolio</span>
                     <button onClick={scrollToTop} className="hidden md:flex items-center gap-2 text-white/60 hover:text-accent transition-colors group">
                         <span className="border-b border-white/30 pb-1 group-hover:border-accent">View All Projects</span>
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </button>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="flex items-baseline justify-between mb-12 sm:mb-20 border-b border-white/10 pb-6 sm:pb-8"
-                >
+                <div className="flex items-baseline justify-between mb-12 sm:mb-20 border-b border-white/10 pb-6 sm:pb-8">
                     <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white uppercase tracking-tighter">
                         Selected<span className="hidden sm:inline"><br className="md:hidden" /></span> Work
                     </h2>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8">
                     {projects.map((project, i) => {
@@ -45,12 +33,8 @@ export default function Portfolio() {
                         const offset = i % 2 === 1 ? 'md:mt-16' : ''
 
                         return (
-                            <motion.div
+                            <div
                                 key={project.title}
-                                initial={{ opacity: 0, y: 60 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ delay: i * 0.1, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 className={`group cursor-pointer ${span} ${offset}`}
                             >
                                 <div className="relative mb-4 sm:mb-6">
@@ -99,17 +83,17 @@ export default function Portfolio() {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         )
                     })}
                 </div>
 
-                <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-12 sm:mt-16 text-center md:hidden">
+                <div className="mt-12 sm:mt-16 text-center md:hidden">
                     <button onClick={scrollToTop} className="inline-flex items-center gap-2 text-white border-b border-accent pb-1 hover:text-accent transition-colors text-sm">
                         View All Projects
                         <ArrowUpRight className="w-4 h-4" />
                     </button>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

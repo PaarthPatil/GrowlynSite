@@ -16,12 +16,8 @@ export default function Testimonials() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 py-4">
                     {testimonials.map((item, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.15, duration: 0.6 }}
                             className="flex flex-col items-center group h-full"
                         >
                             <div 
@@ -82,7 +78,7 @@ export default function Testimonials() {
                                 <h4 className="text-white font-bold text-base sm:text-lg mb-3 leading-snug">{item.metric}</h4>
                                 <p className="text-white/70 text-xs sm:text-sm leading-relaxed">{item.description}</p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
