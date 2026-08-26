@@ -37,7 +37,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
         }
     }, [isOpen, defaultTab, lenis])
 
-    const handleContactSubmit = (e) => {
+    const handleContactSubmit = async (e) => {
         e.preventDefault()
         const newErrors = {}
         if (!contactForm.name.trim()) newErrors.name = "Name is required"
@@ -53,15 +53,39 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
         setErrors({})
         setIsSubmitting(true)
 
-        // Mock API call
-        setTimeout(() => {
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: "27b78839-ca53-4f42-a1f9-217444722b95",
+                    subject: `Growlyn Project Lead: ${contactForm.name} - ${contactForm.service}`,
+                    from_name: "Growlyn Contact Form",
+                    name: contactForm.name,
+                    email: contactForm.email,
+                    service: contactForm.service,
+                    message: contactForm.message,
+                }),
+            })
+
+            const result = await response.json()
+            if (result.success) {
+                setIsSubmitted(true)
+                setContactForm({ name: "", email: "", service: "SEO", message: "" })
+            } else {
+                setErrors({ form: result.message || "Something went wrong. Please try again." })
+            }
+        } catch (error) {
+            setErrors({ form: "Failed to connect to the server. Please check your connection." })
+        } finally {
             setIsSubmitting(false)
-            setIsSubmitted(true)
-            setContactForm({ name: "", email: "", service: "SEO Optimization", message: "" })
-        }, 1500)
+        }
     }
 
-    const handleCareersSubmit = (e) => {
+    const handleCareersSubmit = async (e) => {
         e.preventDefault()
         const newErrors = {}
         if (!careersForm.name.trim()) newErrors.name = "Name is required"
@@ -78,12 +102,37 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
         setErrors({})
         setIsSubmitting(true)
 
-        // Mock API call
-        setTimeout(() => {
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: "27b78839-ca53-4f42-a1f9-217444722b95",
+                    subject: `Growlyn Career Application: ${careersForm.name} - ${careersForm.role}`,
+                    from_name: "Growlyn Careers Portal",
+                    name: careersForm.name,
+                    email: careersForm.email,
+                    role: careersForm.role,
+                    resume_or_portfolio: careersForm.resumeUrl,
+                    cover_note: careersForm.message,
+                }),
+            })
+
+            const result = await response.json()
+            if (result.success) {
+                setIsSubmitted(true)
+                setCareersForm({ name: "", email: "", role: "Senior SEO Strategist (Navi Mumbai / Hybrid)", resumeUrl: "", message: "" })
+            } else {
+                setErrors({ form: result.message || "Something went wrong. Please try again." })
+            }
+        } catch (error) {
+            setErrors({ form: "Failed to connect to the server. Please check your connection." })
+        } finally {
             setIsSubmitting(false)
-            setIsSubmitted(true)
-            setCareersForm({ name: "", email: "", role: "Senior SEO Strategist", resumeUrl: "", message: "" })
-        }, 1500)
+        }
     }
 
     const handleClose = () => {
@@ -367,6 +416,12 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                         {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
                                     </div>
                                 </>
+                            )}
+
+                            {errors.form && (
+                                <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-medium text-center">
+                                    {errors.form}
+                                </div>
                             )}
 
                             {/* Submit Button */}
