@@ -36,9 +36,6 @@ export default function Portfolio() {
                     <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white uppercase tracking-tighter">
                         Selected<span className="hidden sm:inline"><br className="md:hidden" /></span> Work
                     </h2>
-                    <span className="hidden md:block text-white/30 text-lg font-heading">
-                        {String(projects.length).padStart(2, '0')} Projects
-                    </span>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8">

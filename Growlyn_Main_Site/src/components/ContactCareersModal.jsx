@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { X, Check, Send, User, Mail, Link as LinkIcon, Briefcase, MessageSquare, ChevronDown } from "lucide-react"
+import { useLenis } from "../context/LenisContext"
 
 export default function ContactCareersModal({ isOpen, onClose, defaultTab = "contact" }) {
+    const lenis = useLenis()
     const [activeTab, setActiveTab] = useState(defaultTab)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -20,8 +22,20 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
             setIsSubmitted(false)
             setIsSubmitting(false)
             setErrors({})
+            
+            // Stop Lenis background scrolling and lock body scroll
+            lenis?.stop()
+            document.body.style.overflow = "hidden"
+        } else {
+            lenis?.start()
+            document.body.style.overflow = ""
         }
-    }, [isOpen, defaultTab])
+
+        return () => {
+            lenis?.start()
+            document.body.style.overflow = ""
+        }
+    }, [isOpen, defaultTab, lenis])
 
     const handleContactSubmit = (e) => {
         e.preventDefault()
@@ -92,6 +106,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="modal-title"
+                data-lenis-prevent
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -156,7 +171,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                 )}
 
                 {/* Scrollable Form Body */}
-                <div className="flex-1 overflow-y-auto p-6 relative z-10">
+                <div className="flex-1 overflow-y-auto p-6 relative z-10" data-lenis-prevent>
                     {isSubmitted ? (
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -195,7 +210,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             type="text"
                                             value={contactForm.name}
                                             onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                                            placeholder="John Doe"
+                                            placeholder="Rohan Mehta"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.name ? "border-red-500" : "border-white/10 focus:border-accent"
                                             } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
@@ -212,7 +227,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             type="email"
                                             value={contactForm.email}
                                             onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                                            placeholder="john@example.com"
+                                            placeholder="rohan@company.in"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.email ? "border-red-500" : "border-white/10 focus:border-accent"
                                             } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
@@ -271,7 +286,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             type="text"
                                             value={careersForm.name}
                                             onChange={(e) => setCareersForm({ ...careersForm, name: e.target.value })}
-                                            placeholder="Jane Doe"
+                                            placeholder="Aarav Sharma"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.name ? "border-red-500" : "border-white/10 focus:border-accent"
                                             } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
@@ -288,7 +303,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                             type="email"
                                             value={careersForm.email}
                                             onChange={(e) => setCareersForm({ ...careersForm, email: e.target.value })}
-                                            placeholder="jane@example.com"
+                                            placeholder="aarav.sharma@gmail.com"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.email ? "border-red-500" : "border-white/10 focus:border-accent"
                                             } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
@@ -307,13 +322,12 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                                 onChange={(e) => setCareersForm({ ...careersForm, role: e.target.value })}
                                                 className="w-full bg-white/[0.03] border border-white/10 focus:border-accent rounded-xl px-4 py-3 sm:py-3.5 text-base text-white outline-none transition-all appearance-none cursor-pointer"
                                             >
-                                                <option className="bg-dark text-white" value="Senior SEO Strategist">Senior SEO Strategist</option>
-                                                <option className="bg-dark text-white" value="PPC Campaign Manager">PPC Campaign Manager</option>
-                                                <option className="bg-dark text-white" value="Social Media Manager">Social Media Manager</option>
-                                                <option className="bg-dark text-white" value="Creative Copywriter">Creative Copywriter</option>
-                                                <option className="bg-dark text-white" value="Frontend Developer">Frontend Developer</option>
-                                                <option className="bg-dark text-white" value="Creative Director">Creative Director</option>
-                                                <option className="bg-dark text-white" value="Growth Intern">Growth Intern / Associate</option>
+                                                <option className="bg-dark text-white" value="Senior SEO Strategist">Senior SEO Strategist (Navi Mumbai / Hybrid)</option>
+                                                <option className="bg-dark text-white" value="PPC Campaign Manager">PPC Campaign Manager (Navi Mumbai / Remote)</option>
+                                                <option className="bg-dark text-white" value="Social Media Specialist">Social Media Specialist (Navi Mumbai)</option>
+                                                <option className="bg-dark text-white" value="Performance Content Writer">Performance Content Writer (Remote India)</option>
+                                                <option className="bg-dark text-white" value="Frontend Developer">Frontend Developer (Navi Mumbai / Hybrid)</option>
+                                                <option className="bg-dark text-white" value="Growth Marketing Intern">Growth Marketing Intern (Vashi, Navi Mumbai)</option>
                                             </select>
                                             <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none" />
                                         </div>
@@ -322,13 +336,13 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                     {/* Resume Link */}
                                     <div className="space-y-1.5 sm:space-y-2">
                                         <label className="text-xs font-bold uppercase tracking-wider text-white/60 flex items-center gap-1.5">
-                                            <LinkIcon className="w-3.5 h-3.5 text-accent" /> Resume / Portfolio Link
+                                            <LinkIcon className="w-3.5 h-3.5 text-accent" /> Resume / LinkedIn Profile
                                         </label>
                                         <input
                                             type="url"
                                             value={careersForm.resumeUrl}
                                             onChange={(e) => setCareersForm({ ...careersForm, resumeUrl: e.target.value })}
-                                            placeholder="https://myportfolio.com or Drive link"
+                                            placeholder="https://linkedin.in/in/aaravsharma or Drive Link"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.resumeUrl ? "border-red-500" : "border-white/10 focus:border-accent"
                                             } rounded-xl px-4 py-3 sm:py-3.5 text-base text-white placeholder-white/20 outline-none transition-all`}
@@ -344,7 +358,7 @@ export default function ContactCareersModal({ isOpen, onClose, defaultTab = "con
                                         <textarea
                                             value={careersForm.message}
                                             onChange={(e) => setCareersForm({ ...careersForm, message: e.target.value })}
-                                            placeholder="Introduce yourself and tell us what value you can add to our ecosystem..."
+                                            placeholder="Tell us about your background, relevant experience in India's digital market, and why you'd like to join Growlyn..."
                                             rows="3"
                                             className={`w-full bg-white/[0.03] border ${
                                                 errors.message ? "border-red-500" : "border-white/10 focus:border-accent"

@@ -25,6 +25,7 @@ export default function PresentationModal({ isOpen, onClose, pdfUrl = "/presenta
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="presentation-title"
+                        data-lenis-prevent
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}

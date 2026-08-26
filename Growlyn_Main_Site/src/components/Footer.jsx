@@ -1,10 +1,13 @@
-import { Mail, ArrowUpRight } from "lucide-react"
-import { footerLinks, whatsappLink } from "../constants"
+import { useState } from "react"
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react"
+import { footerLinks, whatsappLink, contactInfo } from "../constants"
 import { motion } from "framer-motion"
 import { useLenis } from "../context/LenisContext"
+import PresentationModal from "./PresentationModal"
 
 export default function Footer({ openModal }) {
     const lenis = useLenis()
+    const [isPresentationOpen, setIsPresentationOpen] = useState(false)
     const scrollTo = (href) => lenis?.scrollTo(href, { offset: -70 })
 
     return (
@@ -87,7 +90,9 @@ export default function Footer({ openModal }) {
                                         onClick={() => {
                                             if (link.name === "Careers" && openModal) {
                                                 openModal("careers")
-                                            } else if (link.name === "Contact") {
+                                            } else if (link.href === "#presentation") {
+                                                setIsPresentationOpen(true)
+                                            } else if (link.name === "Contact Us" || link.name === "Contact") {
                                                 scrollTo("#contact")
                                             } else {
                                                 scrollTo(link.href)
@@ -110,10 +115,26 @@ export default function Footer({ openModal }) {
                                 <div className="bg-accent/20 p-1.5 sm:p-2 rounded-lg text-accent flex-shrink-0">
                                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                                 </div>
-                                <a href="mailto:growlyn@gmail.com" className="hover:text-white transition-colors break-all">growlyn@gmail.com</a>
+                                <a href={`mailto:${contactInfo.email}`} className="hover:text-white transition-colors break-all text-xs sm:text-sm">{contactInfo.email}</a>
                             </li>
-                            <li className="leading-relaxed pl-8 sm:pl-12 border-l-2 border-white/10 text-white/50 text-xs sm:text-sm">
-                                101, Bhawani Complex, Plot No. 67-68, 68A,<br />Sector 19A, Vashi, Navi Mumbai 400703
+                            <li className="flex items-center gap-2 sm:gap-3">
+                                <div className="bg-accent/20 p-1.5 sm:p-2 rounded-lg text-accent flex-shrink-0">
+                                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                                </div>
+                                <a href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors text-xs sm:text-sm">{contactInfo.phone}</a>
+                            </li>
+                            <li className="flex items-start gap-2 sm:gap-3">
+                                <div className="bg-accent/20 p-1.5 sm:p-2 rounded-lg text-accent flex-shrink-0 mt-0.5">
+                                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                                </div>
+                                <a
+                                    href={contactInfo.googleMapsUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white transition-colors leading-relaxed text-xs sm:text-sm text-white/70"
+                                >
+                                    {contactInfo.address}
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -129,6 +150,12 @@ export default function Footer({ openModal }) {
                     </div>
                 </div>
             </div>
+
+            <PresentationModal
+                isOpen={isPresentationOpen}
+                onClose={() => setIsPresentationOpen(false)}
+                pdfUrl="/presentation.pdf"
+            />
         </footer>
     )
 }

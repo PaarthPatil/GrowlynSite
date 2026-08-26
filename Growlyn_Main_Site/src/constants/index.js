@@ -147,6 +147,13 @@ export const posts = [
     },
 ];
 
+export const contactInfo = {
+    email: "info@growlyn.in",
+    phone: "+91 88282 65416",
+    address: "101, Bhawani Complex, Plot No. 67-68A, Sector 19A, Vashi, Navi Mumbai, Maharashtra - 400703",
+    googleMapsUrl: "https://maps.google.com/?q=101+Bhawani+Complex+Sector+19A+Vashi+Navi+Mumbai+400703"
+};
+
 export const footerLinks = {
     services: [
         { name: "Brand & Communication Strategy", href: "#services" },
@@ -157,6 +164,7 @@ export const footerLinks = {
     company: [
         { name: "Careers", href: "#contact" },
         { name: "Contact Us", href: "#contact" },
+        { name: "About Us", href: "#presentation" },
     ],
     social: [
         { Icon: Instagram, href: "https://www.instagram.com/growwithgrowlyn/" },
